@@ -1,0 +1,73 @@
+== README
+
+Tech Spec:
+
+Rails 4.2.0
+Ruby 2.2.2
+
+About App:
+This is a service similar to Zomato in India. It allows users to find any kind of “service” near a
+geographical area specified. We would be creating a few visualizations on top of Yelp data to
+display restaurant related information near san francisco.
+
+1. Create a Restaurants API
+
+● Create a model for Restaurants (Do not create database table for this.)
+
+● Model should load data by calling external service present in the lib folder
+
+“DataFetch::Main.get_restaurents”
+
+● After data is loaded from external service, model should parse data & extract
+
+following fields
+
+i. Restaurant Name
+
+ii. Restaurant Reviews Count
+
+iii. latitude
+
+iv. longitude
+
+v. city
+
+vi. state
+
+vii. Zip Code
+
+viii. Avg Rating
+
+● Create a Restaurant API by creating index method on RestaurantsController
+
+i.It should return an array of all restaurants returned by External Service ordered by
+
+review_count.
+
+ii. Call to /restaurants.json
+
+Iii. Format of response would be
+
+[
+
+{
+
+“restaurant_name”: “Sarvanna Bhavan”, “review_count”: 30,
+
+“address”: {
+
+“latitude”: <LAT>, “longitude”: <LON>, “city”: <City>,
+
+“state”: <State>
+
+“zipcode”: <ZIPCODE>
+
+},
+
+“rating”: <05>
+
+}
+
+]
+
+
