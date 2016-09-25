@@ -5,46 +5,22 @@ Tech Spec:
 Rails 4.2.0
 Ruby 2.2.2
 
+App Strategies:
+1. Fething yelp using yelp_data.json inside fetch_data service with eager loading (check application.rb) inorder to fasten method calling
+2. At model level, cached yelp data rails cache
+3. Run rake "tmp:cache:clear" whenever make changes to yelp_data.json
+
+Guideline:
+
+1. Start server
+2. Call http://localhost:3000/api/restaurants
+
 About App:
 This is a service similar to Zomato in India. It allows users to find any kind of “service” near a
 geographical area specified. We would be creating a few visualizations on top of Yelp data to
 display restaurant related information near san francisco.
 
-1. Create a Restaurants API
-
-● Create a model for Restaurants (Do not create database table for this.)
-
-● Model should load data by calling external service present in the lib folder
-
-“DataFetch::Main.get_restaurents”
-
-● After data is loaded from external service, model should parse data & extract
-
-following fields
-
-i. Restaurant Name
-
-ii. Restaurant Reviews Count
-
-iii. latitude
-
-iv. longitude
-
-v. city
-
-vi. state
-
-vii. Zip Code
-
-viii. Avg Rating
-
-● Create a Restaurant API by creating index method on RestaurantsController
-
-i.It should return an array of all restaurants returned by External Service ordered by
-
-review_count.
-
-ii. Call to /restaurants.json
+Call to api/restaurants.json
 
 Iii. Format of response would be
 
